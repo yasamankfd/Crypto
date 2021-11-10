@@ -130,6 +130,10 @@ GridView currencies;
         GridAdapter gridAdapter = new GridAdapter(icons,symbols);
         currencies.setAdapter(gridAdapter);
         currencies.setNumColumns(1);
+        currencies.setOnItemClickListener((adapterView, view, i, l) -> {
+            intent.putExtra("symbol",symbols.get(i));
+            startActivity(intent);
+        });
 
 
 
