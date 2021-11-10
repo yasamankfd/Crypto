@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Crypto">
         <activity
+            android:name=".Show_currency"
+            android:exported="false" />
+        <activity
             android:name=".TopListActivity"
             android:exported="false" />
         <activity
