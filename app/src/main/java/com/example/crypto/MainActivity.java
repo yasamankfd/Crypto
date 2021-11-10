@@ -30,10 +30,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
         ArrayList<Icon> icons = new ArrayList<>();
+        Intent ii = new Intent(MainActivity.this,BankActivity.class);
         icons.add(new Icon("نرخ ارزها", R.drawable.currency, new Intent(MainActivity.this,CurrencyActivity.class)));
         icons.add(new Icon("تاپ لیست معاملات", R.drawable.toplist, new Intent(MainActivity.this,TopListActivity.class)));
         icons.add(new Icon("تبدیلگر ارز", R.drawable.converter, new Intent(MainActivity.this,ConverterActivity.class)));
         icons.add(new Icon("دسترسی به بانکها", R.drawable.bank, new Intent(MainActivity.this,BankActivity.class)));
+//        icons.add(new Icon("بانک ملی",R.drawable.meli,ii));
+//        icons.add(new Icon("بانک سپه",R.drawable.sepah,ii));
+//        System.out.println("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU->"+icons.size());
+//        icons.add(new Icon("پست بانک ایران",R.drawable.post,new Intent(MainActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک تجارت",R.drawable.tejarat,new Intent(MainActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک ملت",R.drawable.melat,new Intent(MainActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک صادرات ایران",R.drawable.saderat,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک توسعه تعاون",R.drawable.tosetavon,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک صنعت و معدن",R.drawable.sanatomadan,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک کشاورزی",R.drawable.keshavarzi,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک مسکن",R.drawable.maskan,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک رفاه کارگران",R.drawable.refah,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک اقتصاد نوین",R.drawable.eqtesad,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک پارسیان",R.drawable.parsian,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک کارآفرین",R.drawable.karafarin,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک سامان",R.drawable.saman,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک پاسارگاد",R.drawable.pasargad,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک سرمایه",R.drawable.sarmaye,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک سینا",R.drawable.sina,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک شهر",R.drawable.shahr,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک گردشگری",R.drawable.ardeshgari,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک ایران زمین",R.drawable.iranzamin,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک خاورمیانه",R.drawable.khavarmianeh,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک آینده",R.drawable.ayande,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک دی",R.drawable.dey,new Intent(BankActivity.this,ConverterActivity.class)));
+//        icons.add(new Icon("بانک قرض الحسنه مهر ایران",R.drawable.mehr,new Intent(BankActivity.this,ConverterActivity.class)));
 
 
         gridView = findViewById(R.id.main_grid);
@@ -43,13 +70,7 @@ public class MainActivity extends AppCompatActivity {
         gridView.setVerticalSpacing(2);
         gridView.setHorizontalSpacing(1);
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                startActivity(icons.get(i).getActivity());
-            }
-        });
+        gridView.setOnItemClickListener((adapterView, view, i, l) -> startActivity(icons.get(i).getActivity()));
 
 
     }
@@ -84,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
             }
             TextView text;
             ImageView image;
+            System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
             text = view.findViewById(R.id.button_text);
             image = view.findViewById(R.id.icon);
             text.setText(icons.get(position).getName());
